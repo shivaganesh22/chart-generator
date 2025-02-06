@@ -1,0 +1,25 @@
+Month,Product Category,Sales,Region
+January,Electronics,15000,North
+January,Furniture,8000,South
+January,Clothing,5000,East
+January,Toys,3000,West
+February,Electronics,18000,North
+February,Furniture,9000,South
+February,Clothing,6000,East
+February,Toys,4000,West
+March,Electronics,20000,North
+March,Furniture,10000,South
+March,Clothing,7000,East
+March,Toys,5000,West
+April,Electronics,22000,North
+April,Furniture,11000,South
+April,Clothing,8000,East
+April,Toys,6000,West
+May,Electronics,25000,North
+May,Furniture,12000,South
+May,Clothing,9000,East
+May,Toys,7000,West
+June,Electronics,27000,North
+June,Furniture,13000,South
+June,Clothing,10000,East
+June,Toys,8000,West
