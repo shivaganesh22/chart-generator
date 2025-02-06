@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem('token')||false);
   const [storage, updateStorage] = useState(null);
   const [loading, updateLoading] = useState(false);
-  const [host, setHost] = useState("http://192.168.106.208:8000");
+  const [host, setHost] = useState("http://192.168.239.208:8000");
   const login = () => {
     // Perform login logic
     setLoggedIn(true);

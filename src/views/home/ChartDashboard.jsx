@@ -275,7 +275,7 @@ const ChartDashboard = () => {
                             nameKey={fields.xAxis}
                             cx="50%"
                             cy="50%"
-                            outerRadius={100}
+                            outerRadius={250}
                             label
                         >
                             {chartData.map((_, index) => (
