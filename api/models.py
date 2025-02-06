@@ -28,7 +28,5 @@ class ChartModel(models.Model):
     dataset = models.CharField(blank=True, null=True, max_length=100)
     date = models.DateField(auto_now_add=True)
     is_in_dashboard = models.BooleanField(default=False)
-    dashboard_position = models.IntegerField(null=True, blank=True)
-    
     def __str__(self):
         return self.user.username

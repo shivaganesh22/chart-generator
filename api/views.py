@@ -20,7 +20,7 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 import uuid
 # Create your views here.
-domain="http://192.168.106.208:3000"
+domain="http:// 192.168.239.208:3000"
 def home(r):
     return render(r,'home.html')
 def sendMail(subject,message,email):
@@ -158,43 +158,6 @@ class SaveChartView(viewsets.ModelViewSet):
         chart.is_in_dashboard = not chart.is_in_dashboard
         chart.save()
         return Response({'status': True, 'is_in_dashboard': chart.is_in_dashboard})
-
-    @action(detail=False, methods=['POST'])
-    def create_collage(self, request):
-        dashboard_charts = self.get_queryset().filter(is_in_dashboard=True)
-        if not dashboard_charts:
-            return Response({'error': 'No charts in dashboard'}, status=status.HTTP_400_BAD_REQUEST)
-
-        # Create collage
-        images = []
-        max_width = 0
-        total_height = 0
-        
-        for chart in dashboard_charts:
-            img = Image.open(chart.chart.path)
-            # Standardize width to 800px while maintaining aspect ratio
-            ratio = 800 / img.width
-            new_size = (800, int(img.height * ratio))
-            img = img.resize(new_size, Image.LANCZOS)
-            images.append(img)
-            total_height += img.height
-
-        # Create new image
-        collage = Image.new('RGB', (800, total_height), 'white')
-        y_offset = 0
-        
-        for img in images:
-            collage.paste(img, (0, y_offset))
-            y_offset += img.height
-
-        # Save collage
-        collage_io = io.BytesIO()
-        collage.save(collage_io, format='PNG')
-        
-        return Response({
-            'collage': collage_io.getvalue(),
-        }, status=status.HTTP_200_OK)
-
     def create(self, request):
         serializer = ChartSerializer(data=request.data)
         if serializer.is_valid():

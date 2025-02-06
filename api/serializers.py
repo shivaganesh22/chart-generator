@@ -19,7 +19,7 @@ class ContactSerializer(serializers.ModelSerializer):
 class ChartSerializer(serializers.ModelSerializer):
     class Meta:
         model=ChartModel
-        fields=["id","dataset","chart","is_in_dashboard","dashboard_position"]
+        fields=["id","dataset","chart","is_in_dashboard"]
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
             required=True,
